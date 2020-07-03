@@ -21,7 +21,7 @@ function preload(){
   redBallImg = loadAnimation("images/Shiny ball-01.png","images/Shiny ball-02.png","images/Shiny ball-03.png","images/Shiny ball-04.png","images/Shiny ball-05.png");
   blueBall= loadAnimation("images/Shiny ball-16.png");
   blueBallImg=loadAnimation("images/Shiny ball-16.png","images/Shiny ball-17.png","images/Shiny ball-18.png","images/Shiny ball-19.png","images/Shiny ball-20.png");
-  pins_img = loadImage("../images/Bowling Pin-02.png");
+  pins_img = loadImage("images/Bowling Pin-02.png");
 }
 
 function setup(){
