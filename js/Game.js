@@ -2,20 +2,12 @@ class Game {
   constructor(){
 
   }
+
   getState(){
     var gameStateRef  = database.ref('gameState');
     gameStateRef.on("value",function(data){
        gameState = data.val();
     })
-    // console.log(gameState);
-  }
-
-  getChance(){
-    var gameChanceRef  = database.ref('players/chance');
-    gameChanceRef.on("value",function(data){
-       gameChance = data.val();
-    })
-    console.log(gameChance);
   }
 
   update(state){
@@ -26,86 +18,95 @@ class Game {
 
   async start(){
     if(gameState === 0){
-      player = new Player();
+      playerObj = new Player();
       var playerCountRef = await database.ref('playerCount').once("value");
       if(playerCountRef.exists()){
         playerCount = playerCountRef.val();
-        player.getCount();
+        playerObj.getCount();
       }
-      form = new Form()
-      form.display();
+      formObj = new Form()
+      formObj.display();
     }
-    baller1 = createSprite(100,200);
-    baller1.addImage("baller1",ball1_img);
-    baller1.scale=0.05;
-    baller2 = createSprite(300,200);
-    baller2.addImage("baller2",ball2_img);
-    baller2.scale=0.05;
-    ballers = [baller1, baller2];
+    ballObj= new Ball();
+    ballObj.display();
+    balls=[ball1,ball2];
+
+    pinObj=new Pin();
+    pinObj.display();
+
   }
 
   play(){
-    form.hide();
+    formObj.hide();
     
     Player.getPlayerInfo();
-    
     if(allPlayers !== undefined){
-      background(rgb(198,135,103));
-      image(alley, 0,-displayHeight*4,displayWidth, displayHeight*5);
-      
-      //var display_position = 100;
-      
-      //index of the array
-      var index = 0;
-
-      //x and y position of the cars
-      var x = 175 ;
-      var y,z;
+      background(alley);
+      var index=0;
       for(var plr in allPlayers){
-        //add 1 to the index for every loop
-        index = index + 1 ;
+        index=index+1;  
+        if (index === playerObj.index){
+          balls[index-1].visible=true;
+          if(keyCode=== 32){
+            if(index==1){
+              // balls[index-1].visible=true;
+              balls[index-1].changeAnimation("redRunning",redBallImg);
+              balls[index-1].frameDelay = 12;
+              balls[index-1].scale=0.03;
+            }else{
+              // balls[index-1].visible=true;
+              balls[index-1].changeAnimation("blueRunning",blueBallImg);
+              balls[index-1].frameDelay = 12;
+              balls[index-1].scale=0.03;
+            }
 
-        //position the cars a little away from each other in x direction
-        x = x + 200;
-        //use data form the database to display the cars in y direction
-        y = displayHeight - allPlayers[plr].score;
-        
-        // z=-200;
-        ballers[index-1].x = x;
-        ballers[index-1].y = y;
-
-        if (index === player.index){
-          ballers[index - 1].shapeColor = "red";
-          camera.position.x = displayWidth/2;
-          camera.position.y = ballers[index-1].y;
-
-          // camera(displayWidth/2, ballers[index-1].y, Z, 0, 0, 0, 0, 1, 0);
+            balls[index-1].velocity.y=-8; 
+    
+            if (balls[index-1].isTouching(pin1)) {
+              pin1.scale=0.07;
+             pin1.addImage(pins_img);
+            }
+            if (balls[index-1].isTouching(pin2)) {
+              pin2.scale=0.07;
+              pin2.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin3)) {
+               pin3.scale=0.07;
+              pin3.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin4)) {
+              pin4.scale=0.07;
+              pin4.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin5)) {
+              pin5.scale=0.07;
+              pin5.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin6)) {
+              pin6.scale=0.07;
+              pin6.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin7)) {
+              pin7.scale=0.07;
+              pin7.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin8)) {
+              pin8.scale=0.07;
+              pin8.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin9)) {
+              pin9.scale=0.07;
+              pin9.addImage(pins_img);
+             }
+             if (balls[index-1].isTouching(pin10)) {
+              pin10.scale=0.07;
+              pin10.addImage(pins_img);
+             }
+          }
         }
       }
-
-    }
-   
-    // if(gameChance!=0){
-    //   if(keyIsDown(UP_ARROW) && player.index !== null){
-    //     player.score +=10
-    //     player.gameChance-=1;
-    //     player.update();
-    //   }
-    // }
-
-    if(keyIsDown(UP_ARROW) && player.index !== null){
-      player.score +=10
-      player.update();
-    }
-
-    if(player.score > 3870){
-      gameState = 2;
-    }
-   
+    } 
     drawSprites();
   }
 
-  end(){
-    console.log("Game Ended");
-  }
 }
