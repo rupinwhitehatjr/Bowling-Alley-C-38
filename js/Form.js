@@ -29,7 +29,6 @@ class Form {
       playerObj.updateCount(playerCount);
       this.greeting.html("Hello " + playerObj.name)
       this.greeting.position(displayWidth/2 - 70, displayHeight/4);
-    });
-
+    });  
   }
 }

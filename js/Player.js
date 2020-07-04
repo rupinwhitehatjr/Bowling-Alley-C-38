@@ -1,7 +1,7 @@
 class Player {
     constructor(){
       this.index = null;
-      this.chance = 5;
+      this.score = 0;
       this.name = null;
     }
   
@@ -22,7 +22,7 @@ class Player {
       var playerIndex = "players/player" + this.index;
       database.ref(playerIndex).set({
         name:this.name,
-        chance:this.chance
+        score:this.score
       });
     }
   

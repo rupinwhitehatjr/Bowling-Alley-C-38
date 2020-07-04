@@ -3,7 +3,7 @@ class Pin{
 
     }
    
-    display(){
+    display1(){
         // var pin1,pin2,pin3,pin4,pin5;
         pin1=createSprite(45, 40, 20, 20);
         pin1.addImage(pinImg);
@@ -55,5 +55,59 @@ class Pin{
         pin8.setCollider("rectangle",0,0,800,250,90);
         pin9.setCollider("rectangle",0,0,800,250,90);
         pin10.setCollider("rectangle",0,0,800,250,90);
+    }
+
+    display2(){
+        // var pin1,pin2,pin3,pin4,pin5;
+        pin11=createSprite(340, 40, 20, 20);
+        pin11.addImage(pinImg);
+        pin11.scale=0.04;
+
+        pin12=createSprite(400, 40, 20, 20);
+        pin12.addImage(pinImg);
+        pin12.scale=0.04;
+
+        pin13=createSprite(460, 40, 20, 20);
+        pin13.addImage(pinImg);
+        pin13.scale=0.04;
+
+        pin14=createSprite(525, 40, 20, 20);
+        pin14.addImage(pinImg);
+        pin14.scale=0.04;
+
+        pin15=createSprite(370, 80, 20, 20);
+        pin15.addImage(pinImg);
+        pin15.scale=0.04;
+
+        pin16=createSprite(430,80, 20, 20);
+        pin16.addImage(pinImg);
+        pin16.scale=0.04;
+
+        pin17=createSprite(500, 80, 20, 20);
+        pin17.addImage(pinImg);
+        pin17.scale=0.04;
+
+        pin18=createSprite(400, 120, 20, 20);
+        pin18.addImage(pinImg);
+        pin18.scale=0.04;
+
+        pin19=createSprite(460, 120, 20, 20);
+        pin19.addImage(pinImg);
+        pin19.scale=0.04;
+        
+        pin20=createSprite(430, 160, 20, 20);
+        pin20.addImage(pinImg);
+        pin20.scale=0.04;
+
+        pin11.setCollider("rectangle",0,0,800,250,90);
+        pin12.setCollider("rectangle",0,0,800,250,90);
+        pin13.setCollider("rectangle",0,0,800,250,90);
+        pin14.setCollider("rectangle",0,0,800,250,90);
+        pin15.setCollider("rectangle",0,0,800,250,90);
+        pin16.setCollider("rectangle",0,0,800,250,90);
+        pin17.setCollider("rectangle",0,0,800,250,90);
+        pin18.setCollider("rectangle",0,0,800,250,90);
+        pin19.setCollider("rectangle",0,0,800,250,90);
+        pin20.setCollider("rectangle",0,0,800,250,90);
     }
 }
