@@ -61,4 +61,9 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     ball1.x= ball1.x + 5;
   } 
+    if (keyCode === LEFT_ARROW) {
+    ball2.x = ball2.x - 5;
+  } else if (keyCode === RIGHT_ARROW) {
+    ball2.x= ball2.x + 5;
+  } 
 }
