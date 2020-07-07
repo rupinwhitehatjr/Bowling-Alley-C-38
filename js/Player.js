@@ -1,8 +1,8 @@
 class Player {
     constructor(){
       this.index = null;
-      this.score = 0;
       this.name = null;
+      this.distance=0;
     }
   
     getCount(){
@@ -22,7 +22,7 @@ class Player {
       var playerIndex = "players/player" + this.index;
       database.ref(playerIndex).set({
         name:this.name,
-        score:this.score
+        distance:this.distance
       });
     }
   

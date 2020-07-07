@@ -16,7 +16,6 @@ var alley,lane,pinImg,pins_img,redBall,redBallImg,blueBall,blueBallImg;
 
 function preload(){
   alley = loadImage("images/Bowling Alley.png");
-  // lane=loadImage("images/lane.png");
   lane=loadImage("images/newLane.png");
   pinImg=loadImage("images/Circle.png");
   pins_img = loadImage("images/Bowling Pin-02.png");
